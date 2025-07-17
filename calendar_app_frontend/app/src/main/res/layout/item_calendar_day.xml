@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="44dp"
+    android:layout_height="48dp"
+    android:layout_gravity="center"
+    android:padding="2dp">
+
+    <TextView
+        android:id="@+id/dayCell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textColor="@color/primary"/>
+
+    <View
+        android:id="@+id/eventDot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_event_dot"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="4dp"
+        android:visibility="invisible"/>
+    <View
+        android:id="@+id/holidayDot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_holiday_dot"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="13dp"
+        android:visibility="invisible"/>
+</FrameLayout>

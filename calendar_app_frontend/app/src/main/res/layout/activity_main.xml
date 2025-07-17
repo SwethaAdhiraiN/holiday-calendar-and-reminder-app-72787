@@ -1,17 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootCoord"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
+        android:titleTextColor="@color/white"
+        app:layout_collapseMode="pin"
+        app:title="Calendar" />
+
+    <!-- Month navigation -->
+    <LinearLayout
+        android:id="@+id/monthNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <ImageButton
+            android:id="@+id/btnPrevMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="Previous Month"/>
+        <TextView
+            android:id="@+id/textCurrentMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Month YYYY"
+            android:layout_marginHorizontal="24dp"/>
+        <ImageButton
+            android:id="@+id/btnNextMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_next"
+            android:contentDescription="Next Month"/>
+    </LinearLayout>
+
+    <!-- Calendar grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendarGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:background="@android:color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginHorizontal="6dp"
+        android:paddingBottom="4dp"
+        android:overScrollMode="never"
+        android:nestedScrollingEnabled="false"
+        android:layout_weight="1"/>
+
+    <!-- Reminders and Holidays -->
+    <TextView
+        android:id="@+id/emptyEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No events or reminders"
+        android:textColor="@color/secondary"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="6dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:overScrollMode="never" />
 
     <TextView
+        android:id="@+id/emptyHolidays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No holidays this month"
+        android:textColor="@color/secondary"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/holidayList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:overScrollMode="never" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Kotlin World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:srcCompat="@drawable/ic_add"
+        app:backgroundTint="@color/accent"
+        app:tint="@android:color/white"
+        android:contentDescription="Add Event"
+        android:layout_margin="16dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

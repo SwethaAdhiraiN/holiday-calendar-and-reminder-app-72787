@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/holidayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Holiday Name"
+        android:textStyle="bold"
+        android:textColor="@color/accent"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/holidayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textColor="@color/secondary"
+        android:textSize="14sp"/>
+</LinearLayout>
